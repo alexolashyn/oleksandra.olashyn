@@ -24,9 +24,9 @@ def check_users_input():
     if (n <= 0) or (m < 0):
         print('Amount of remaining trees should be greater or equal to zero.\nAmount of all trees should be greater than zero.')
         return check_users_input()
-
-    print('There are ', all_possible_variants(
-        n, m), ' ways to cut down some of n trees so that after cutting there are m trees left')
+    return n, m
 
 
-check_users_input()
+n, m = check_users_input()
+print('There are ', all_possible_variants(
+    n, m), ' ways to cut down some of n trees so that after cutting there are m trees left')
