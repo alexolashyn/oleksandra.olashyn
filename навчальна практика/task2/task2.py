@@ -25,6 +25,15 @@ def input_size():
     return input_size()
 
 
+def input_interval():
+    print('Enter the start and end of the interval: ')
+    a, b = numeric_input(), numeric_input()
+    if a <= b:
+        return a, b
+    print('a should be lower or equal to b')
+    return input_interval()
+
+
 def input_or_generate_array(users_choice, n, a, b, arr=x):
     while len(arr) < n:
         if users_choice == '1':
@@ -78,8 +87,7 @@ def users_menu():
         n = input_size()
         a, b = 0, 0
         if users_choice == '2':
-            print('Enter the start and end of the interval: ')
-            a, b = numeric_input(), numeric_input()
+            a, b = input_interval()
         input_or_generate_array(users_choice, n, a, b)
         sorting()
         print(operations['compare'], ' - amount of comparisons, ',
