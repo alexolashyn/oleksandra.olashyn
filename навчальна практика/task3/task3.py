@@ -26,7 +26,7 @@ def users_menu():
             z.generate(n, a, b)
         print('Enter the element, which you\'d like to find: ', end='')
         element = numeric_input()
-        if (element == x.find_maximum() and x.find_position(element) <= x.__len__() / 2) and y.check_negative():
+        if (element == x.find_maximum() and x.find_position(element) < x.__len__() / 2) and y.check_negative():
             y.cube_of_value()
         print('Your result:\n', x, '\n', y, '\n', z)
         x.clear()
