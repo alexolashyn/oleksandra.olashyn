@@ -81,28 +81,37 @@ class LinkedList:
         return True
 
     def find_maximum(self):
-        node = self.head
-        maximum = node.value
-        while node.next:
-            node = node.next
-            if node.value > maximum:
-                maximum = node.value
-        return maximum
+        if not self.is_empty():
+            node = self.head
+            maximum = node.value
+            while node.next:
+                node = node.next
+                if node.value > maximum:
+                    maximum = node.value
+            return maximum
+        else:
+            return
 
     def find_position(self, value):
-        position = 0
-        node = self.head
-        while node.value != value:
-            position += 1
-            node = node.next
-        return position
+        if not self.is_empty():
+            position = 0
+            node = self.head
+            while node.value != value:
+                position += 1
+                node = node.next
+            return position
+        else:
+            return
 
     def cube_of_value(self):
-        maximum = self.find_maximum()
-        node = self.head
-        while node.value != maximum:
-            node.value = node.value ** 3
-            node = node.next
+        if not self.is_empty():
+            maximum = self.find_maximum()
+            node = self.head
+            while node.value != maximum:
+                node.value = node.value ** 3
+                node = node.next
+        else:
+            return
 
     def insert(self, value, position):
         if position < 0:
@@ -122,31 +131,18 @@ class LinkedList:
                 i += 1
 
     def remove(self, position):
-        if self.head == None:
+        if self.head is None:
             return
-
-        temp = self.head
-
-        if position == 0:
-            self.head = temp.next
-
-            temp = None
-
-            return
-
-        for i in range(position - 1):
-
-            temp = temp.next
-
-            if temp is None:
-                break
-        if temp is None:
-            return
-        if temp.next is None:
-            return
-        next = temp.next.next
-        temp.next = None
-        temp.next = next
+        index = 0
+        node = self.head
+        while node.next and index < position:
+            previous_node = node
+            node = node.next
+            index += 1
+        if index == 0:
+            self.head = self.head.next
+        else:
+            previous_node.next = node.next
 
     def clear(self):
         node = self.head

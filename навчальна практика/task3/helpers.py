@@ -25,22 +25,13 @@ def index_input():
     return index_input()
 
 
-def list_changing(lists):
-    new_users_choice = input(
-        '4 - to insert element to the certain position\n5 - to delete element from the position\n6 - to continue\n')
-    if new_users_choice == '6':
-        main_algorithm(lists[0], lists[1], lists[2])
-        return
-    if new_users_choice == '4':
-        for list in lists:
-            element, position = numeric_input('Enter some element: '), index_input()
-            list.insert(element, position)
-    if new_users_choice == '5':
-        for list in lists:
-            position = index_input()
-            list.remove(position)
-    main_algorithm(lists[0], lists[1], lists[2])
-    return list_changing(lists)
+def interval_input():
+    print('Enter the start and end of the interval: ', end='')
+    a, b = numeric_input(), numeric_input()
+    if a <= b:
+        return a, b
+    print('a should be lower or equal to b')
+    return interval_input()
 
 
 def main_algorithm(x, y, z):
@@ -51,10 +42,24 @@ def main_algorithm(x, y, z):
     print('Your result:\n', x, '\n', y, '\n', z)
 
 
-def interval_input():
-    print('Enter the start and end of the interval: ', end='')
-    a, b = numeric_input(), numeric_input()
-    if a <= b:
-        return a, b
-    print('a should be lower or equal to b')
-    return interval_input()
+def list_changing(x, y, z):
+    options = ['4', '5', '6']
+    new_users_choice = input(
+        '4 - to insert element to the certain position\n5 - to delete element from the position\n6 - to continue\n')
+    if not (new_users_choice in options):
+        print('Choose an option from the menu!')
+    else:
+        if new_users_choice == '6':
+            main_algorithm(x, y, z)
+            return
+        lists = [x, y, z]
+        for index in range(3):
+            if new_users_choice == '4':
+                element, position = numeric_input('Enter some element: '), index_input()
+                lists[index].insert(element, position)
+            else:
+                position = index_input()
+                lists[index].remove(position)
+        if x.is_empty():
+            print('Your lists is empty!')
+        return list_changing(x, y, z)

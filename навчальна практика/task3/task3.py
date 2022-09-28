@@ -24,11 +24,11 @@ def users_menu():
             x.generate(n, a, b)
             y.generate(n, a, b)
             z.generate(n, a, b)
-        lists = [x, y, z]
-        list_changing(lists)
-        x.clear()
-        y.clear()
-        z.clear()
+        list_changing(x, y, z)
+        if x.is_empty():
+            x.clear()
+            y.clear()
+            z.clear()
     return users_menu()
 
 
