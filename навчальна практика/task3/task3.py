@@ -2,7 +2,7 @@ from linkedlist import LinkedList
 from helpers import *
 
 x, y, z = LinkedList(), LinkedList(), LinkedList()
-options = ['1', '2', '3']
+options = ['1', '2', '3', '4', '5', '6']
 
 
 def users_menu():
@@ -13,7 +13,7 @@ def users_menu():
     else:
         if users_choice == '3':
             print('The session is over!')
-            return
+            return 0
         n = size_input()
         if users_choice == '1':
             x.input(n)
@@ -24,11 +24,8 @@ def users_menu():
             x.generate(n, a, b)
             y.generate(n, a, b)
             z.generate(n, a, b)
-        print('Enter the element, which you\'d like to find: ', end='')
-        element = numeric_input()
-        if (element == x.find_maximum() and x.find_position(element) < x.__len__() / 2) and y.check_negative():
-            y.cube_of_value()
-        print('Your result:\n', x, '\n', y, '\n', z)
+        lists = [x, y, z]
+        list_changing(lists)
         x.clear()
         y.clear()
         z.clear()

@@ -28,7 +28,7 @@ def interval_input():
     a, b = numeric_input(), numeric_input()
     if (a <= b) and (a >= MINIMUM_POSSIBLE_VALUE or b <= MAXIMUM_POSSIBLE_VALUE):
         return a, b
-    print('a<=b\na>=1, b<=99')
+    print('a<b\na>=1, b<=99')
     return interval_input()
 
 

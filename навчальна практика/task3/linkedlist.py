@@ -122,15 +122,31 @@ class LinkedList:
                 i += 1
 
     def remove(self, position):
-        if position >= self.__len__() or position < 0:
-            print('There is no such position in list!')
+        if self.head == None:
             return
-        node = self.head
-        for index in range(self.__len__()):
-            if index == position - 1:
-                node.next = node.next.next
-                return
-            node = node.next
+
+        temp = self.head
+
+        if position == 0:
+            self.head = temp.next
+
+            temp = None
+
+            return
+
+        for i in range(position - 1):
+
+            temp = temp.next
+
+            if temp is None:
+                break
+        if temp is None:
+            return
+        if temp.next is None:
+            return
+        next = temp.next.next
+        temp.next = None
+        temp.next = next
 
     def clear(self):
         node = self.head
