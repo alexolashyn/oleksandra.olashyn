@@ -2,7 +2,7 @@ from linkedlist import LinkedList
 from helpers import *
 
 x, y, z = LinkedList(), LinkedList(), LinkedList()
-options = ['1', '2', '3', '4', '5', '6']
+options = ['1', '2', '3']
 
 
 def users_menu():
