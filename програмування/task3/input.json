@@ -2,11 +2,11 @@
     {
         "id": 1,
         "brand": "bmw",
-        "model": "x5",
+        "model": "x7",
         "registration_number": "BC1234NB",
-        "last_repaired_at": "2014-05-07",
-        "bought_at": "2010-05-07",
-        "car_mileage": "20000000"
+        "last_repaired_at": "2011-08-07",
+        "bought_at": "2010-07-08",
+        "car_mileage": 20000000
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "registration_number": "BC6734KL",
         "last_repaired_at": "2022-09-13",
         "bought_at": "2020-08-10",
-        "car_mileage": "5000000"
+        "car_mileage": 5000000
     },
     {
         "id": 4,
@@ -24,7 +24,7 @@
         "registration_number": "BN6758HK",
         "last_repaired_at": "2020-12-13",
         "bought_at": "2017-03-04",
-        "car_mileage": "2000000"
+        "car_mileage": 2000000
     },
     {
         "id": 3,
@@ -33,6 +33,6 @@
         "registration_number": "BN6758HK",
         "last_repaired_at": "2020-12-13",
         "bought_at": "2017-03-04",
-        "car_mileage": "2000000"
+        "car_mileage": 2000000
     }
 ]

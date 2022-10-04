@@ -61,7 +61,7 @@ class Validation:
     def month_check(month):
         temp = Validation.numeric_validation(month)
         if temp > 12:
-            new = input('Month cannot be greate than 12!\nInput year: ')
+            new = input('Month cannot be greate than 12!\nInput month: ')
             return Validation.month_check(new)
         return temp
 
@@ -69,17 +69,24 @@ class Validation:
     def day_check(day):
         temp = Validation.numeric_validation(day)
         if temp > 31:
-            new = input('Day cannot be greate than 31!\nInput year: ')
+            new = input('Day cannot be greate than 31!\nInput day: ')
             return Validation.day_check(new)
         return temp
 
     @staticmethod
     def date_validation(date):
-        try:
-            year, month, day = map(str, date.split('-'))
-        except:
-            new = input('Incorrect input!\nEnter the date(YYYY-MM-DD): ')
-            return Validation.date_validation(new)
+        year, month, day = '', '', ''
+        str_date = str(date)
+        for index in range(len(str_date)):
+            if ((index == 4 or index == 7) and str_date[index] != '-') and len(str_date) > 10:
+                new = input('Incorrect input!\nEnter the date(YYYY-MM-DD): ')
+                return Validation.date_validation(new)
+            if index < 4:
+                year += str_date[index]
+            elif 4 < index < 7:
+                month += str_date[index]
+            elif index > 7:
+                day += str_date[index]
         year, month, day = Validation.year_check(year), Validation.month_check(month), Validation.day_check(day)
         month_30 = [4, 6, 9, 11]
         if month == 2:
@@ -101,12 +108,13 @@ class Validation:
 
     @staticmethod
     def inappropriate_date(date_of_purchase, date_of_last_repairing):
-        new_date_of_purchase, new_date_of_last_repairing = input(
-            'The day of last repairing cannot be earlier than the date of purchase!\nEnter new date of purchase: '), input(
-            'Enter new date of last repairing: ')
-        new_date_of_purchase = Validation.date_validation(new_date_of_purchase)
-        new_date_of_last_repairing = Validation.date_validation(new_date_of_last_repairing)
-        return new_date_of_purchase, new_date_of_last_repairing
+        while date_of_last_repairing < date_of_purchase:
+            date_of_purchase, date_of_last_repairing = input(
+                'The day of last repairing cannot be earlier than the date of purchase!\nEnter new date of purchase: '), input(
+                'Enter new date of last repairing: ')
+            date_of_purchase = Validation.date_validation(date_of_purchase)
+            date_of_last_repairing = Validation.date_validation(date_of_last_repairing)
+        return date_of_purchase, date_of_last_repairing
 
     @staticmethod
     def id_validation(auto_list):
@@ -122,7 +130,10 @@ class Validation:
         id_arr.clear()
 
     @staticmethod
-    def validation_menu(auto, attribute, value):
+    def validation_menu(attribute, value, auto=None):
+        if attribute == 'id':
+            value = Validation.numeric_validation(value)
+            return value
         if attribute == 'brand':
             value = Validation.brand_validation(value)
             return value
@@ -134,11 +145,13 @@ class Validation:
             return value
         if attribute == 'last_repaired_at':
             value = Validation.date_validation(value)
-            auto.bought_at, value = Validation.inappropriate_date(auto.bought_at, value)
+            if auto is not None:
+                auto.bought_at, value = Validation.inappropriate_date(auto.bought_at, value)
             return value
         if attribute == 'bought_at':
             value = Validation.date_validation(value)
-            value, auto.last_repaired_at = Validation.inappropriate_date(value, auto.last_repaired_a)
+            if auto is not None:
+                value, auto.last_repaired_at = Validation.inappropriate_date(value, auto.last_repaired_at)
             return value
         if attribute == 'car_mileage':
             value = Validation.numeric_validation(value)

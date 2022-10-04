@@ -57,10 +57,7 @@ class Collection:
 
     def sorting(self):
         characteristic = Collection.characteristic_menu('for sorting')
-        if characteristic == 'id' or characteristic == 'last_repaired_at' or characteristic == 'bought_at' or characteristic == 'car_mileage':
-            self.auto_list = sorted(self.auto_list, key=lambda auto: getattr(auto, characteristic))
-        else:
-            self.auto_list = sorted(self.auto_list, key=lambda auto: getattr(auto, characteristic).lower())
+        self.auto_list = sorted(self.auto_list, key=lambda product: str(getattr(product, characteristic)).lower())
 
     def searching(self):
         item = input('Enter what you\'d like to find: ')
@@ -76,7 +73,7 @@ class Collection:
             if auto.id == id:
                 attribute = Collection.characteristic_menu('for editing')
                 value = input('Enter new value: ')
-                value = Validation.validation_menu(auto, attribute, value)
+                value = Validation.validation_menu(attribute, value, auto)
                 setattr(auto, attribute, value)
         self.in_json(file_name)
 
@@ -92,6 +89,3 @@ class Collection:
         self.in_json(file_name)
 
 
-'''a = Collection([])
-a.from_json('input.json')
-print(a)'''
