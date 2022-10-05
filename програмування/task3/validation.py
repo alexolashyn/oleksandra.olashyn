@@ -3,11 +3,11 @@ import datetime as datetime
 
 class Validation:
     @staticmethod
-    def numeric_validation(value):
+    def numeric_validation(value, message=''):
         try:
             temp = int(value)
         except:
-            new = input('Use numeric digit!\nEnter new value: ')
+            new = input('Use numeric digit! ' + message)
             return Validation.numeric_validation(new)
         if temp <= 0:
             new = input('Value should be greater than zero!\nEnter new value: ')
@@ -50,24 +50,24 @@ class Validation:
         return value
 
     @staticmethod
-    def year_check(year):
-        temp = Validation.numeric_validation(year)
+    def year_check(year, message='Enter the year: '):
+        temp = Validation.numeric_validation(year, message)
         if temp > 2022 or temp < 1980:
             new = input('Year cannot be greate than 2022!\nInput year: ')
             return Validation.year_check(new)
         return temp
 
     @staticmethod
-    def month_check(month):
-        temp = Validation.numeric_validation(month)
+    def month_check(month, message='Enter the month: '):
+        temp = Validation.numeric_validation(month, message)
         if temp > 12:
             new = input('Month cannot be greate than 12!\nInput month: ')
             return Validation.month_check(new)
         return temp
 
     @staticmethod
-    def day_check(day):
-        temp = Validation.numeric_validation(day)
+    def day_check(day, message='Enter the day: '):
+        temp = Validation.numeric_validation(day, message)
         if temp > 31:
             new = input('Day cannot be greate than 31!\nInput day: ')
             return Validation.day_check(new)
@@ -79,6 +79,9 @@ class Validation:
         str_date = str(date)
         for index in range(len(str_date)):
             if ((index == 4 or index == 7) and str_date[index] != '-') and len(str_date) > 10:
+                new = input('Incorrect input!\nEnter the date(YYYY-MM-DD): ')
+                return Validation.date_validation(new)
+            if (index != 4 and index != 7) and str_date == '-':
                 new = input('Incorrect input!\nEnter the date(YYYY-MM-DD): ')
                 return Validation.date_validation(new)
             if index < 4:

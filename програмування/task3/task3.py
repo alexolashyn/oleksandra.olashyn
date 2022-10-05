@@ -22,15 +22,11 @@ def users_menu():
         if users_choice == '2':
             auto_collection.searching()
         if users_choice == '3':
-            temp_id = input('Enter ID: ')
-            temp_brand = input('Enter brand: ')
-            temp_model = input('Enter model: ')
-            temp_registration_number = input('Enter registration number: ')
-            temp_last_repaired_at = input('Enter date of last repairing(YYYY-MM-DD): ')
-            temp_bought_at = input('Enter date of purchase: ')
-            temp_car_mileage = input('Enter mileage: ')
-            temp_auto = Auto(temp_id, temp_brand, temp_model, temp_registration_number, temp_last_repaired_at,
-                             temp_bought_at, temp_car_mileage)
+            temp_auto = Auto(id=input('Enter ID: '), brand=input('Enter brand: '), model=input('Enter model: '),
+                             registration_number=input('Enter registration number: '),
+                             last_repaired_at=input('Enter date of last repairing(YYYY-MM-DD): '),
+                             bought_at=input('Enter date of purchase: '), car_mileage=input('Enter mileage: '))
+            temp_auto.bought_at, temp_auto.last_repaired_at = Validation.inappropriate_date(temp_auto.bought_at, temp_auto.last_repaired_at)
             auto_collection.adding(temp_auto, 'input.json')
         if users_choice == '4':
             temp_id = input('Enter ID: ')
