@@ -1,0 +1,65 @@
+[
+    {
+        "id": 2,
+        "brand": "audi",
+        "model": "q8",
+        "registration_number": "BC1234KL",
+        "last_repaired_at": "2021-11-10",
+        "bought_at": "2020-12-13",
+        "car_mileage": 5000000
+    },
+    {
+        "id": 3,
+        "brand": "audi",
+        "model": "q7",
+        "registration_number": "BN6758HK",
+        "last_repaired_at": "2020-12-13",
+        "bought_at": "2017-03-04",
+        "car_mileage": 2000000
+    },
+    {
+        "id": 1,
+        "brand": "toyota",
+        "model": "x7",
+        "registration_number": "AA2345FG",
+        "last_repaired_at": "2011-08-07",
+        "bought_at": "2010-07-08",
+        "car_mileage": 20000000
+    },
+    {
+        "id": 4,
+        "brand": "toyota",
+        "model": "camry",
+        "registration_number": "BN6758HK",
+        "last_repaired_at": "2020-12-13",
+        "bought_at": "2017-03-04",
+        "car_mileage": 2000000
+    },
+    {
+        "id": 5,
+        "brand": "bmw",
+        "model": "x7",
+        "registration_number": "BV1234GF",
+        "last_repaired_at": "2022-10-02",
+        "bought_at": "2020-12-13",
+        "car_mileage": 20000
+    },
+    {
+        "id": 6,
+        "brand": "bmw",
+        "model": "t5",
+        "registration_number": "VB3452MN",
+        "last_repaired_at": "2020-12-11",
+        "bought_at": "2019-11-11",
+        "car_mileage": 2000000
+    },
+    {
+        "id": 8,
+        "brand": "bmw",
+        "model": "T5",
+        "registration_number": "AA2345GG",
+        "last_repaired_at": "2022-09-05",
+        "bought_at": "2020-12-13",
+        "car_mileage": 300000
+    }
+]
