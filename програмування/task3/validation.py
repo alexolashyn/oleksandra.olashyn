@@ -34,6 +34,9 @@ class Validation:
 
     @staticmethod
     def registration_number_validation(value):
+        if len(value) != 8:
+            new = input('Wrong length of number!\nEnter the registration number in format AA1234BC: ')
+            return Validation.registration_number_validation(new)
         for index in range(len(value)):
             if 1 < index < 6:
                 if not value[index].isdigit():
@@ -159,3 +162,12 @@ class Validation:
         if attribute == 'car_mileage':
             value = Validation.numeric_validation(value)
             return value
+
+    @staticmethod
+    def input_file_validation(collection):
+        file_name = input('Enter file name: ')
+        try:
+            collection.from_json(file_name)
+        except:
+            return Validation.input_file_validation(collection)
+        return collection

@@ -24,7 +24,10 @@ class Collection:
         with open(file_name, 'r') as json_file:
             auto_data = json.loads(json_file.read())
             for x in auto_data:
+                x['bought_at'], x['last_repaired_at'] = Validation.inappropriate_date(x['bought_at'],
+                                                                                      x['last_repaired_at'])
                 self.auto_list.append(Auto(**x))
+
         Validation.id_validation(self.auto_list)
         json_file.close()
 
@@ -87,5 +90,3 @@ class Collection:
         self.auto_list.append(other)
         Validation.id_validation(self.auto_list)
         self.in_json(file_name)
-
-
