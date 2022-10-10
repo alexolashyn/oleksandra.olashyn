@@ -35,6 +35,9 @@ class Collection:
                         print(key, ': ', x[key], end=' - ')
                         print(e)
                         continue
+                    except AttributeError as e:
+                        print(e)
+                        continue
                 temp_dict = temp.__dict__
                 if len(temp_dict) == len(x):
                     self.auto_list.append(temp)

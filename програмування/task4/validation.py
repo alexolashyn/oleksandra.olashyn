@@ -86,7 +86,11 @@ class Validation:
     @staticmethod
     def inappropriate_date(func):
         def sub_inappropriate_date(auto, value):
-            if value < getattr(auto, 'bought_at'):
+            try:
+                bought_at = getattr(auto, 'bought_at')
+            except AttributeError as e:
+                raise AttributeError(e)
+            if value < bought_at:
                 raise ValueError(
                     'The date of last repairing cannot be earlier than the date of purchase!')
             return func(auto, value)
