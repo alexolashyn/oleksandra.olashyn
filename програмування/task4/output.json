@@ -1,0 +1,38 @@
+[
+    {
+        "id": 7,
+        "brand": "audi",
+        "model": "t7",
+        "registration_number": "BC5463YT",
+        "bought_at": "2019-09-08",
+        "last_repaired_at": "2022-10-01",
+        "car_mileage": 5000000
+    },
+    {
+        "id": 4,
+        "brand": "bmw",
+        "model": "x7",
+        "registration_number": "BV1234GF",
+        "bought_at": "2020-12-13",
+        "last_repaired_at": "2022-10-02",
+        "car_mileage": 20000
+    },
+    {
+        "id": 6,
+        "brand": "honda",
+        "model": "v6",
+        "registration_number": "BD4567YT",
+        "bought_at": "2020-12-13",
+        "last_repaired_at": "2022-01-01",
+        "car_mileage": 200032
+    },
+    {
+        "id": 5,
+        "brand": "toyota",
+        "model": "corolla",
+        "registration_number": "BC4567YT",
+        "bought_at": "2018-10-01",
+        "last_repaired_at": "2022-09-01",
+        "car_mileage": 4000000
+    }
+]
