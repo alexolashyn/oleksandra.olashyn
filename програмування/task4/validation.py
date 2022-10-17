@@ -101,7 +101,7 @@ class Validation:
     def id_validation(func):
         def sub_id_validation(collection):
             id_list = []
-            for auto in collection.auto_list:
+            for auto in collection.container:
                 while auto.id in id_list:
                     auto.id += 1
                 id_list.append(auto.id)
