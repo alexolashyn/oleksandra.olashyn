@@ -1,0 +1,44 @@
+[
+  {
+    "name": "alan",
+    "price_per_day": "200.11",
+    "start_date": {
+      "year": "2020",
+      "month": "2",
+      "day": "26"
+    },
+    "end_date": {
+      "year": "2020",
+      "month": "12",
+      "day": "12"
+    }
+  },
+  {
+    "name": "steven",
+    "price_per_day": "1200.50",
+    "start_date": {
+      "year": "2021",
+      "month": "12",
+      "day": "25"
+    },
+    "end_date": {
+      "year": "2022",
+      "month": "1",
+      "day": "25"
+    }
+  },
+  {
+    "name": "samanta",
+    "price_per_day": "500",
+    "start_date": {
+      "year": "2022",
+      "month": "02",
+      "day": "26"
+    },
+    "end_date": {
+      "year": "2022",
+      "month": "02",
+      "day": "28"
+    }
+  }
+]
