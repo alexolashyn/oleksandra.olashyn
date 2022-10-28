@@ -1,11 +1,11 @@
 from validation import Validation
 
 
-def generate_list(arr, context):
+def generate_arr(arr, context):
     if context is None:
         print('You have not chosen the strategy!')
         return
-    context.generate_list(arr)
+    context.generate_arr(arr)
 
 
 def empty_check(arr):
@@ -24,7 +24,7 @@ def remove(arr):
 def remove_in_interval(arr):
     if empty_check(arr):
         a, b = Validation.interval_validation()
-        arr.delete_between_pos(a, b)
+        arr.remove_in_interval(a, b)
 
 
 def list_method(x, y):

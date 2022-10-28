@@ -70,9 +70,12 @@ class LinkedList:
         else:
             previous_node.next = node.next
 
-    def delete_between_pos(self, a, b):
+    def remove_in_interval(self, a, b):
         if a >= b:
             print('Inappropriate positions value!')
+            return
+        if a >= self.__len__() or b >= self.__len__():
+            print('There is no such positions in the list!')
             return
         for i in range(b - a + 1):
             if self.is_empty():

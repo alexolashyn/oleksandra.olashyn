@@ -1,17 +1,16 @@
 from strategy import *
 
 
-class Context():
-    def __init__(self, strategy: Strategy) -> None:
-        self._strategy = strategy
+class Context:
+    def __init__(self):
+        self.strategy = None
 
-    @property
-    def strategy(self) -> Strategy:
-        return self._strategy
+    def get_strategy(self):
+        return self.strategy
 
-    @strategy.setter
-    def strategy(self, strategy: Strategy) -> None:
-        self._strategy = strategy
+    def set_strategy(self, strategy):
+        self.strategy = strategy
 
-    def generate_list(self, arr) -> None:
-        self._strategy.list_generation(arr)
+    def generate_arr(self, arr):
+        self.strategy.list_generation(arr)
+

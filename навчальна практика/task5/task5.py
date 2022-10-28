@@ -28,12 +28,14 @@ def users_menu():
             return users_menu()
         else:
             if users_choice == '1':
-                context = Context(FirstStrategy())
+                context = Context()
+                context.set_strategy(FirstStrategy())
             if users_choice == '2':
-                context = Context(SecondStrategy())
+                context = Context()
+                context.set_strategy(SecondStrategy())
             if users_choice == '3':
                 for key in lists:
-                    helpers.generate_list(lists[key], context)
+                    helpers.generate_arr(lists[key], context)
             if users_choice == '4':
                 for key in lists:
                     helpers.remove(lists[key])
