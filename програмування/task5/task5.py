@@ -52,7 +52,7 @@ def users_menu():
             if users_choice == '7':
                 caretaker.redo()
             if users_choice == '8':
-                auto_collection.in_json(input('Enter the file name for output: '))
+                auto_collection.in_json(input('Enter the file action for output: '))
             auto_collection.in_json(file_name)
         return users_menu()
 

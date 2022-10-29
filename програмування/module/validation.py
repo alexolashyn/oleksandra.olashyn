@@ -56,7 +56,7 @@ class Validation:
     def name_validation(value):
         for letter in value:
             if not letter.isalpha():
-                raise ValueError('Inappropriate name value!')
+                raise ValueError('Inappropriate action value!')
         return value
 
     @staticmethod

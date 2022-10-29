@@ -9,7 +9,7 @@ class Brands(Enum):
     mercedes = 5
 
     def __gt__(self, other):
-        return self.name.lower() > other.name.lower()
+        return self.name.lower() > other.action.lower()
 
     def __str__(self):
         return str(self.name)

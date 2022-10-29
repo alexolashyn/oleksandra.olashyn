@@ -112,7 +112,7 @@ class Validation:
     @staticmethod
     def input_file_validation(func):
         def sub_input_file_validation(collection):
-            file_name = input('Enter file name: ')
+            file_name = input('Enter file action: ')
             try:
                 collection.from_json(file_name)
                 return func(collection), file_name

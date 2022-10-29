@@ -44,7 +44,7 @@ def users_menu():
             other_users_choice = input(
                 'Choose suggested option!\nWould you like to print the result in json-file(yes/no): ')
         if other_users_choice == 'yes':
-            auto_collection.in_json(input('Enter the file name for output: '))
+            auto_collection.in_json(input('Enter the file action for output: '))
         auto_collection.in_json(file_name)
     return users_menu()
 

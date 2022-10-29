@@ -44,7 +44,7 @@ class Collection:
                           int(booking.start_date.day)), date(int(booking.end_date.year), int(booking.end_date.month),
                                                              int(booking.end_date.day))
             delta = d2 - d1
-            result_dict[booking.name] = delta.days * booking.price_per_day
+            result_dict[booking.action] = delta.days * booking.price_per_day
         print(result_dict)
 
     def price_upper(self):
@@ -54,7 +54,7 @@ class Collection:
 
     def adding(self):
         temp_dict = {
-            'name': input('Enter the name: '),
+            'action': input('Enter the action: '),
             'price_per_day': input('Enter the price: '),
             'start_date': {
                 'year': input('Enter the start year value: '),
